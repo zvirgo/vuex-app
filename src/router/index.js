@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../view/Home'
+import Home from '../views/Home.vue'
 import Counter from '../components/Counter.vue'
 import TodoList from '../components/TodoList.vue'
 
@@ -8,11 +8,8 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '/',
-        name: '',
-        component: Home,
-        meta: {
-            title: "Home"
-        }
+        name: 'Home',
+        component: Home
     },
     {
         path: '/Counter',
@@ -23,7 +20,7 @@ const routes = [{
         }
     },
     {
-        path: '/todoList',
+        path: '/TodoList',
         name: 'TodoList',
         component: TodoList,
         meta: {
@@ -37,9 +34,5 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes
 })
-router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | vuex-app`
-    next()
 
-})
 export default router

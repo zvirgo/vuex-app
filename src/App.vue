@@ -28,25 +28,38 @@
           <v-icon>mdi-counter </v-icon>
         </v-btn>
       </router-link>
-      <router-link to="/todoList">
+      <router-link to="/TodoList">
         <v-btn icon>
           <v-icon>mdi-format-list-checks </v-icon>
         </v-btn>
       </router-link>
     </v-app-bar>
 
-    <v-main> </v-main>
+    <v-main>
+      <router-view />
+    </v-main>
   </v-app>
 </template>
 
-<script>
-export default {
-  name: "App",
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-  components: {},
+#nav {
+  padding: 30px;
 
-  data: () => ({
-    //
-  }),
-};
-</script>
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>

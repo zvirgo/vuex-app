@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import plugins from './plugins'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        count: 0
+        count: 0,
+        todos: JSON.parse(window.localStorage.getItem('todo-vuejs') || '[]')
     },
     getters: {
         evenOrOdd(state) {
@@ -18,6 +20,9 @@ export default new Vuex.Store({
         },
         decrement(state) {
             state.count--
+        },
+        addTodo(state, { text }) {
+            state.todos.push({ text, done: false })
         }
     },
     actions: {
@@ -36,5 +41,6 @@ export default new Vuex.Store({
             })
         }
     },
-    modules: {}
+    modules: {},
+    plugins
 })
