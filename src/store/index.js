@@ -23,7 +23,22 @@ export default new Vuex.Store({
         },
         addTodo(state, { text }) {
             state.todos.push({ text, done: false })
+        },
+        toggleTodo(state, { todo }) {
+            todo.done = !todo.done
+        },
+        deleteTodo(state, { todo }) {
+            state.todos.splice(state.todos.indexOf(todo), 1)
+        },
+        clearCompleted(state) {
+            state.todos = state.todos.filter(todo => !todo.done)
+        },
+        toggleAll(state, { done }) {
+            state.todos.forEach(todo => {
+                todo.done = done
+            });
         }
+
     },
     actions: {
         incrementOfOdd({ commit, state }) {
