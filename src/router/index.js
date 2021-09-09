@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Counter from '../components/Counter.vue'
 import TodoList from '../components/TodoList.vue'
+import ShoppingCart from '../views/ShoppingCart.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,14 @@ const routes = [{
         component: TodoList,
         meta: {
             title: "TodoList"
+        }
+    },
+    {
+        path: '/ShoppingCart',
+        name: 'ShoppingCart',
+        component: ShoppingCart,
+        meta: {
+            title: "ShoppingCart"
         }
     },
 ]

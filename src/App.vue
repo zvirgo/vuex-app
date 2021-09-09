@@ -33,6 +33,11 @@
           <v-icon>mdi-format-list-checks </v-icon>
         </v-btn>
       </router-link>
+      <router-link to="/ShoppingCart">
+        <v-btn icon>
+          <v-icon>mdi-cart</v-icon>
+        </v-btn>
+      </router-link>
     </v-app-bar>
 
     <v-main>
