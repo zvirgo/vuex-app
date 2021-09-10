@@ -17,7 +17,7 @@ const mutations = {
         state.all = products
     },
     addToCard(state, { id }) {
-        state.all.find(p => p.id === id).inventory--;
+        state.all.find(productItem => productItem.id === id).inventory--;
     }
 }
 

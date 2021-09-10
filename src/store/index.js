@@ -56,7 +56,7 @@ export default new Vuex.Store({
                 }, 1000)
             })
         },
-        addToCard({ commit, productItem }) {
+        addToCard({ commit }, productItem) {
             if (productItem.inventory > 0) {
                 commit('addToCard', {
                     id: productItem.id
