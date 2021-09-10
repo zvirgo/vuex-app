@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import plugins from './plugins'
+import products from './modules/products'
 
 Vue.use(Vuex)
 
@@ -54,8 +55,17 @@ export default new Vuex.Store({
                     reject()
                 }, 1000)
             })
+        },
+        addToCard({ commit, productItem }) {
+            if (productItem.inventory > 0) {
+                commit('addToCard', {
+                    id: productItem.id
+                })
+            }
         }
     },
-    modules: {},
+    modules: {
+        products
+    },
     plugins
 })

@@ -66,4 +66,7 @@
     }
   }
 }
+.v-btn {
+  text-transform: capitalize !important;
+}
 </style>

@@ -6,11 +6,7 @@
         <hr />
         <h2>Products</h2>
       </v-col>
-      <v-col
-        cols="4"
-        v-for="productItem in shoppingItems"
-        :key="productItem.id"
-      >
+      <v-col cols="3" v-for="productItem in allProducts" :key="productItem.id">
         <ProductList :productItem="productItem" />
       </v-col>
     </v-row>
@@ -18,14 +14,18 @@
 </template>
 
 <script>
-import { shoppingItems } from "../assets/data/db";
+import { mapGetters } from "vuex";
 import ProductList from "../components/ProductList.vue";
 export default {
   components: { ProductList },
   data() {
-    return {
-      shoppingItems: shoppingItems,
-    };
+    return {};
+  },
+  computed: {
+    ...mapGetters(["allProducts"]),
+  },
+  created() {
+    this.$store.dispatch("getAllProducts");
   },
 };
 </script>
